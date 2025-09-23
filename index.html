@@ -84,8 +84,6 @@
       <div class="logo" onclick="showPage('home')">
         <img src="PowerIcon.png" alt="Power Logo">
       </div>
-
-      <!-- Navigation Links -->
       <ul>
         <li><a href="#" id="nav-home" onclick="showPage('home')" class="active">Home</a></li>
         <li><a href="#" id="nav-televisions" onclick="showPage('televisions')">Televisions</a></li>
@@ -94,12 +92,17 @@
     </nav>
   </header>
 
-  <!-- Content -->
-  <main id="content"></main>
+  <!-- D3 elements below header -->
+  <h1>Appliance Energy Consumption</h1>
+  <div id="content"></div>
+  <svg width="300" height="150"></svg>
 
   <!-- Footer -->
   <footer>
     <p>&copy; <span id="year"></span> Elijah Wei Ern PEE | Some content/code generated with assistance from ChatGPT</p>
   </footer>
+  <!-- Load D3 first, then your D3 code file -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="energy-d3.js"></script>
 </body>
 </html>
