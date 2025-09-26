@@ -37,28 +37,33 @@ const createBarChart = (data) => {
   barAndLabel
     .append("rect")
     .attr("class", d => `bar bar-${d.count}`)
-    .attr("x", 100)
+    .attr("x", 120) // move bars further right for more label space
     .attr("y", 0)
     .attr("width", d => xScale(d.count))
     .attr("height", yScale.bandwidth())
     .attr("fill", "steelblue");
 
-  // Add category text labels
+  // Add category text labels (bigger, spaced out, vertically centered)
   barAndLabel
     .append("text")
     .text(d => d.brand)
-    .attr("x", 100)
-    .attr("y", yScale.bandwidth() / 2 + 5) // center text vertically in band
+    .attr("x", 110) // space out from bar
+    .attr("y", yScale.bandwidth() / 2)
     .attr("text-anchor", "end")
+    .attr("dominant-baseline", "middle")
     .style("font-family", "sans-serif")
-    .style("font-size", "13px");
+    .style("font-size", "35px")
+    .style("font-weight", "bold");
 
-  // Add count value labels at the end of each bar
+  // Add count value labels at the end of each bar (bigger, centered)
   barAndLabel
     .append("text")
     .text(d => d.count)
-    .attr("x", d => 100 + xScale(d.count) + 4)
-    .attr("y", 12) // adjust as needed for vertical centering
+    .attr("x", d => 120 + xScale(d.count) + 12) // space out from bar end
+    .attr("y", yScale.bandwidth() / 2)
+    .attr("text-anchor", "start")
+    .attr("dominant-baseline", "middle")
     .style("font-family", "sans-serif")
-    .style("font-size", "13px");
+    .style("font-size", "35px")
+    .style("font-weight", "bold");
 };
