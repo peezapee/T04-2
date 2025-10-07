@@ -15,7 +15,7 @@
 
       <ul>
         <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="television.html" id="nav-televisions">Televisions</a></li>
+        <li><a href="television.html" id="nav-televisions" class="active">Televisions</a></li>
         <li><a href="about.html" id="nav-about">About Us</a></li>
       </ul>
     </nav>
@@ -23,19 +23,94 @@
 
   <main>
     <h1>Televisions & Energy Consumption</h1>
-    <p>
-      Modern televisions in Australia are required to display an 
-      <strong>Energy Rating Label</strong> showing their efficiency.
-    </p>
-    <ul>
-      <li>LED TVs generally consume less energy than Plasma or LCD TVs.</li>
-      <li>Screen size impacts electricity usage significantly.</li>
-      <li>Energy-efficient TVs may save households up to <strong>$200 per year</strong>.</li>
-    </ul>
+
+    <section>
+      <h2>About the dataset</h2>
+      <p>
+        This dataset counts TV models by brand (tvBrandCount.csv). Each row lists a brand and the number of TV models
+        observed. The chart below visualises how many models each brand contributes to the dataset.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key insights</h2>
+      <ul>
+        <li>SAMSUNG ELECTRONICS has the largest count (859 models in this dataset).</li>
+        <li>KOGAN and LG are also prominent (702 and 682 respectively).</li>
+        <li>Several well-known brands appear with smaller counts (e.g., TCL, SONY, PHILIPS).</li>
+      </ul>
+    </section>
+    
+    <section>
+        <h2>What type of screen technologies are available in Australia?</h2>
+
+        <figure class="q1-photo" style="max-width:800px;margin:0 auto;text-align:center;">
+          <img src="images/Question1.png" alt="Pie chart: TV screen technologies in Australia" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+          <figcaption style="font-size:0.9rem;color:#555;margin-top:8px;">Distribution of TV screen technologies in Australia (source: dataset)</figcaption>
+        </figure>
+        
+        <ul>
+            <li>LED (Light Emitting Diode)</li>
+            <li>OLED (Organic Light Emitting Diode)</li>
+            <li>LCD (LED)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Which are the most frequent?</h2>
+
+        <figure class="q2-photo" style="max-width:800px;margin:0 auto;text-align:center;">
+          <img src="images/Q1(a).png" alt="Bar chart: TV screen technologies in Australia" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+          <figcaption style="font-size:0.9rem;color:#555;margin-top:8px;">Count of TV screen technologies in Australia (source: dataset)</figcaption>
+        </figure>
+        
+        <ul>
+            <li>LCD (LED) has the most count at 2038, followed by LCD at 340 and lastly OLED at 249.</li>
+        </ul>
+    </section>
   </main>
+
+    <section>
+        <h2>Which type of screen technology consumes the least amount of power?</h2>
+
+        <figure class="q4-photo" style="max-width:800px;margin:0 auto;text-align:center;">
+          <img src="images/Q4.png" alt="Bar chart: Power consumption of TVs" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+          <figcaption style="font-size:0.9rem;color:#555;margin-top:8px;">Power consumption of TV screen technologies in Australia (source: dataset)</figcaption>
+        </figure>
+        
+        <ul>
+            <li>We can see that LCD consumes the least amount of power out of all 3 screen technologies, followed by LCD(LED) and OLED technology becoming the highest power consumption.</li>
+            <li>Now since we have compared screen technologies in terms of power consumption, lets compare it with screen sizes and how it correlates.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>What is the relationship between screen size and power use?</h2>
+
+        <figure class="q5-photo" style="max-width:800px;margin:0 auto;text-align:center;">
+          <img src="images/Q5.png" alt="Scatter plot: Screen size vs Power consumption of TVs" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+          <figcaption style="font-size:0.9rem;color:#555;margin-top:8px;">Screen size vs Power consumption of TV screen technologies. (source: dataset)</figcaption>
+        </figure>
+
+        <ul>
+            <li>We can see that as the screen size increases, the power consumption also increases. This is a positive correlation.</li>
+            <li>However, we can also see that there are some outliers in the data, for example, there is a TV with a screen size of 100 inches that consumes only 100 watts of power. This is likely due to the fact that it is an OLED TV, which is more energy efficient than LCD and LED TVs.</li>
+        </ul>
+    </section>
 
   <footer>
     <p>&copy; <span id="year"></span> Elijah Wei Ern PEE | Some content/code generated with assistance from ChatGPT</p>
   </footer>
+
+  <!-- D3 + app scripts (load in this order) -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="t04-4-load.js"></script> <!-- loads CSV then calls createBarChart -->
+  <script src="t04-5-bars.js"></script> <!-- defines createBarChart -->
+
+  <script>
+    // minimal: set year and ensure nav highlighting
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('nav-televisions').classList.add('active');
+  </script>
 </body>
 </html>
